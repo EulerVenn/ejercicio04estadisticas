@@ -3,10 +3,10 @@ package estadistica;
 import java.util.ArrayList;
 
 public class ProcesadorMinimo extends ProcesadorEstadistico {
-    public Double calculaResultado(ArrayList<Double> datos) {
+    public void calculaResultado(ArrayList<Double> datos) {
 
         if (datos.size() == 0)
-            return 0.0;
+            this.resultado = 0.0;
 
         Double minimo = Double.POSITIVE_INFINITY;
 
@@ -14,6 +14,6 @@ public class ProcesadorMinimo extends ProcesadorEstadistico {
             if (dato < minimo)
                 minimo = dato;
         }
-        return minimo;
+        this.resultado = minimo;
     }
 }

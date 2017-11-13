@@ -3,10 +3,10 @@ package estadistica;
 import java.util.ArrayList;
 
 public class ProcesadorMaximo extends ProcesadorEstadistico {
-    public Double calculaResultado(ArrayList<Double> datos) {
+    public void calculaResultado(ArrayList<Double> datos) {
 
         if (datos.size() == 0)
-            return 0.0;
+            this.resultado = 0.0;
 
         Double maximo = Double.NEGATIVE_INFINITY;
 
@@ -14,6 +14,6 @@ public class ProcesadorMaximo extends ProcesadorEstadistico {
             if (dato > maximo)
                 maximo = dato;
         }
-        return maximo;
+        this.resultado = maximo;
     }
 }

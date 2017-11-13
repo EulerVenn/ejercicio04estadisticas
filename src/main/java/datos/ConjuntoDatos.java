@@ -6,39 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConjuntoDatos {
-    private double media;
-    private double desviacionTipica;
-    private double maximo;
-    private double minimo;
 
     private List<ProcesadorEstadistico> procesadoresEstadisticos;
 
     public ConjuntoDatos() {
         procesadoresEstadisticos = new ArrayList<ProcesadorEstadistico>();
-
-        procesadoresEstadisticos.add(new ProcesadorMedia());
-        procesadoresEstadisticos.add(new ProcesadorDesviacionTipica());
-        procesadoresEstadisticos.add(new ProcesadorMaximo());
-        procesadoresEstadisticos.add(new ProcesadorMinimo());
     }
 
-    public double getMedia() {
-        return media;
+    public void addProcesadorEstadistico(ProcesadorEstadistico procesadorEstadistico) {
+        procesadoresEstadisticos.add(procesadorEstadistico);
     }
 
-    public double getDesviacionTipica() {
-        return desviacionTipica;
-    }
-
-    public double getMaximo() {
-        return maximo;
-    }
-
-    public double getMinimo() {
-        return minimo;
+    public double getDatoEstadistico(Class clase) {
+        for (ProcesadorEstadistico procesador:procesadoresEstadisticos) {
+            if (procesador.getClass() == clase) {
+                return procesador.getResultado();
+            }
+        }
+        return 0.0;
     }
 
     public void recibeDatos(ArrayList<Double> datos) {
-
+        for (ProcesadorEstadistico procesador:procesadoresEstadisticos) {
+            procesador.calculaResultado(datos); // Poco eficiente, hay que recorrer los datos en cada procesador estadístico, cuando con un solo recorrido sería suficiente
+        }
     }
 }

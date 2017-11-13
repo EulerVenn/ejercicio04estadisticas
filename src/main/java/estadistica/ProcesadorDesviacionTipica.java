@@ -12,7 +12,7 @@ public class ProcesadorDesviacionTipica extends ProcesadorEstadistico {
 
         ProcesadorMedia procesadorMedia = new ProcesadorMedia();
         procesadorMedia.calculaResultado(datos);
-        Double media = procesadorMedia.resultado;
+        Double media = procesadorMedia.getResultado();
 
         Double sumatorioDesviacionesAlCuadrado = 0.0;
 
