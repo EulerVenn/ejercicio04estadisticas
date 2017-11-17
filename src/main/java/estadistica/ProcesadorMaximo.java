@@ -5,8 +5,10 @@ import java.util.ArrayList;
 public class ProcesadorMaximo extends ProcesadorEstadistico {
     public void calculaResultado(ArrayList<Double> datos) {
 
-        if (datos.size() == 0)
-            this.resultado = 0.0;
+        if (datos.size() == 0) {
+            System.out.printf("No hay datos suficientes para calcular el máximo.\n");
+            this.resultado = Double.NaN;
+        }
 
         Double maximo = Double.NEGATIVE_INFINITY;
 

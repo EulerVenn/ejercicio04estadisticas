@@ -7,8 +7,10 @@ public class ProcesadorDesviacionTipica extends ProcesadorEstadistico {
     @Override
     public void calculaResultado(ArrayList<Double> datos) {
 
-        if (datos.size() < 2)
-            this.resultado =  0.0;
+        if (datos.size() < 2) {
+            System.out.printf("No hay datos suficientes para calcular la desviación típica.\n");
+            this.resultado = Double.NaN;
+        }
 
         ProcesadorMedia procesadorMedia = new ProcesadorMedia();
         procesadorMedia.calculaResultado(datos);
