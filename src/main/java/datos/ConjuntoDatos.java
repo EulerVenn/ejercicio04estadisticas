@@ -7,10 +7,12 @@ import java.util.List;
 
 public class ConjuntoDatos {
 
+    private boolean conjuntoDatosValido;
     private List<ProcesadorEstadistico> procesadoresEstadisticos;
 
     public ConjuntoDatos() {
         procesadoresEstadisticos = new ArrayList<ProcesadorEstadistico>();
+        conjuntoDatosValido = false;
     }
 
     public void addProcesadorEstadistico(ProcesadorEstadistico procesadorEstadistico) {
@@ -18,17 +20,27 @@ public class ConjuntoDatos {
     }
 
     public double getDatoEstadistico(Class clase) {
-        for (ProcesadorEstadistico procesador:procesadoresEstadisticos) {
-            if (procesador.getClass() == clase) {
-                return procesador.getResultado();
+        if (conjuntoDatosValido) {
+            for (ProcesadorEstadistico procesador : procesadoresEstadisticos) {
+                if (procesador.getClass() == clase) {
+                    return procesador.getResultado();
+                }
             }
         }
-        return 0.0;
+        return Double.NaN;
     }
 
     public void recibeDatos(ArrayList<Double> datos) {
-        for (ProcesadorEstadistico procesador:procesadoresEstadisticos) {
-            procesador.calculaResultado(datos); // Poco eficiente, hay que recorrer los datos en cada procesador estadístico, cuando con un solo recorrido sería suficiente
+        if (datos.size() < 2) {
+            conjuntoDatosValido = false;
+            System.out.printf("La lista de datos debe contener al menos dos valores.\n");
+            //throw new ArithmeticException("La lista de datos debe contener al menos dos valores.");
+        }
+        else {
+            for (ProcesadorEstadistico procesador : procesadoresEstadisticos) {
+                procesador.calculaResultado(datos); // Poco eficiente, hay que recorrer los datos en cada procesador estadístico, cuando con un solo recorrido sería suficiente
+            }
+            conjuntoDatosValido = true;
         }
     }
 }

@@ -30,5 +30,19 @@ public class Main {
         System.out.printf("Desviación típica: " + conjuntoDatos.getDatoEstadistico(ProcesadorDesviacionTipica.class) + "\n");
         System.out.printf("Máximo: " + conjuntoDatos.getDatoEstadistico(ProcesadorMaximo.class) + "\n");
         System.out.printf("Mínimo: " + conjuntoDatos.getDatoEstadistico(ProcesadorMinimo.class) + "\n");
+
+        // Sin datos suficientes
+
+        System.out.printf("\nPrueba sin datos suficientes\n");
+        datos = new ArrayList<Double>();
+
+        datos.add(3.0);
+
+        conjuntoDatos.recibeDatos(datos);
+
+        System.out.printf("Media: " + conjuntoDatos.getDatoEstadistico(ProcesadorMedia.class) + "\n");
+        System.out.printf("Desviación típica: " + conjuntoDatos.getDatoEstadistico(ProcesadorDesviacionTipica.class) + "\n");
+        System.out.printf("Máximo: " + conjuntoDatos.getDatoEstadistico(ProcesadorMaximo.class) + "\n");
+        System.out.printf("Mínimo: " + conjuntoDatos.getDatoEstadistico(ProcesadorMinimo.class) + "\n");
     }
 }
