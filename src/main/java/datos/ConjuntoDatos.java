@@ -25,7 +25,7 @@ public class ConjuntoDatos {
         return Double.NaN;
     }
 
-    public void recibeDatos(ArrayList<Double> datos) {
+    public void recibeDatos(List<Double> datos) {
         for (ProcesadorEstadistico procesador : procesadoresEstadisticos)
             procesador.calculaResultado(datos); // Poco eficiente, hay que recorrer los datos en cada procesador estadístico, cuando con un solo recorrido sería suficiente
     }

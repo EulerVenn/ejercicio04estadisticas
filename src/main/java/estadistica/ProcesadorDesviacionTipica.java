@@ -1,14 +1,14 @@
 package estadistica;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ProcesadorDesviacionTipica extends ProcesadorEstadistico {
 
     @Override
-    public void calculaResultado(ArrayList<Double> datos) {
+    public void calculaResultado(List<Double> datos) {
 
         if (datos.size() < 2) {
-            System.out.printf("No hay datos suficientes para calcular la desviación típica.\n");
+            System.out.print("No hay datos suficientes para calcular la desviación típica.\n");
             this.resultado = Double.NaN;
             return;
         }

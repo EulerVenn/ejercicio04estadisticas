@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Double> datos = new ArrayList<Double>();
+        ArrayList<Double> datos = new ArrayList<>();
 
         datos.add(1.0);
         datos.add(2.0);
@@ -26,23 +26,23 @@ public class Main {
 
         conjuntoDatos.recibeDatos(datos);
 
-        System.out.printf("Media: " + conjuntoDatos.getDatoEstadistico(ProcesadorMedia.class) + "\n");
-        System.out.printf("Desviación típica: " + conjuntoDatos.getDatoEstadistico(ProcesadorDesviacionTipica.class) + "\n");
-        System.out.printf("Máximo: " + conjuntoDatos.getDatoEstadistico(ProcesadorMaximo.class) + "\n");
-        System.out.printf("Mínimo: " + conjuntoDatos.getDatoEstadistico(ProcesadorMinimo.class) + "\n");
+        System.out.printf("Media: %s%n", conjuntoDatos.getDatoEstadistico(ProcesadorMedia.class));
+        System.out.printf("Desviación típica: %s%n", conjuntoDatos.getDatoEstadistico(ProcesadorDesviacionTipica.class));
+        System.out.printf("Máximo: %s%n", conjuntoDatos.getDatoEstadistico(ProcesadorMaximo.class));
+        System.out.printf("Mínimo: %s%n", conjuntoDatos.getDatoEstadistico(ProcesadorMinimo.class));
 
         // Sin datos suficientes
 
-        System.out.printf("\nPrueba sin datos suficientes\n");
-        datos = new ArrayList<Double>();
+        System.out.printf("%nPrueba sin datos suficientes%n");
+        datos = new ArrayList<>();
 
         datos.add(3.0);
 
         conjuntoDatos.recibeDatos(datos);
 
-        System.out.printf("Media: " + conjuntoDatos.getDatoEstadistico(ProcesadorMedia.class) + "\n");
-        System.out.printf("Desviación típica: " + conjuntoDatos.getDatoEstadistico(ProcesadorDesviacionTipica.class) + "\n");
-        System.out.printf("Máximo: " + conjuntoDatos.getDatoEstadistico(ProcesadorMaximo.class) + "\n");
-        System.out.printf("Mínimo: " + conjuntoDatos.getDatoEstadistico(ProcesadorMinimo.class) + "\n");
+        System.out.printf("Media: %s%n", conjuntoDatos.getDatoEstadistico(ProcesadorMedia.class));
+        System.out.printf("Desviación típica: %s%n", conjuntoDatos.getDatoEstadistico(ProcesadorDesviacionTipica.class));
+        System.out.printf("Máximo: %s%n", conjuntoDatos.getDatoEstadistico(ProcesadorMaximo.class));
+        System.out.printf("Mínimo: %s%n", conjuntoDatos.getDatoEstadistico(ProcesadorMinimo.class));
     }
 }
