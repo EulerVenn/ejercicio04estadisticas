@@ -70,4 +70,15 @@ public class ConjuntoDatosTest {
         assertEquals(Double.NaN, conjuntoDatos.getDatoEstadistico(ProcesadorMaximo.class));
         assertEquals(Double.NaN, conjuntoDatos.getDatoEstadistico(ProcesadorMinimo.class));
     }
+
+    @Test
+    public void SolicitudProcesadorIncorrecta() {
+        ArrayList<Double> datos = new ArrayList<Double>();
+
+        ConjuntoDatos conjuntoDatos = creaConjuntoDatosConProcesadores();
+
+        conjuntoDatos.recibeDatos(datos);
+
+        assertEquals(Double.NaN, conjuntoDatos.getDatoEstadistico(null));
+    }
 }
