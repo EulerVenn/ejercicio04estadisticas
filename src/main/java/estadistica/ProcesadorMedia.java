@@ -10,6 +10,7 @@ public class ProcesadorMedia extends ProcesadorEstadistico {
         if (datos.size() == 0) {
             System.out.printf("No hay datos suficientes para calcular la media.\n");
             this.resultado = Double.NaN;
+            return;
         }
 
         Double sumatorio = 0.0;

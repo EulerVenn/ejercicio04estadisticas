@@ -8,6 +8,7 @@ public class ProcesadorMaximo extends ProcesadorEstadistico {
         if (datos.size() == 0) {
             System.out.printf("No hay datos suficientes para calcular el máximo.\n");
             this.resultado = Double.NaN;
+            return;
         }
 
         Double maximo = Double.NEGATIVE_INFINITY;

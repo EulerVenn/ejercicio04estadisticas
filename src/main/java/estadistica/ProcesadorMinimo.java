@@ -8,6 +8,7 @@ public class ProcesadorMinimo extends ProcesadorEstadistico {
         if (datos.size() == 0) {
             System.out.printf("No hay datos suficientes para calcular el mínimo.\n");
             this.resultado = Double.NaN;
+            return;
         }
 
         Double minimo = Double.POSITIVE_INFINITY;

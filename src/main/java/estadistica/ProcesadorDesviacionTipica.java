@@ -10,6 +10,7 @@ public class ProcesadorDesviacionTipica extends ProcesadorEstadistico {
         if (datos.size() < 2) {
             System.out.printf("No hay datos suficientes para calcular la desviación típica.\n");
             this.resultado = Double.NaN;
+            return;
         }
 
         ProcesadorMedia procesadorMedia = new ProcesadorMedia();
